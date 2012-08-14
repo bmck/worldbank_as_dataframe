@@ -33,10 +33,10 @@ describe WorldBank::Query do
   end
   context 'per page' do
     it 'adds a perPage string to the params' do
-      stub_get('sources/all?perPage=50&format=json')
+      stub_get('sources/all?per_page=50&format=json')
       WorldBank::Source.all.raw.per_page(50).fetch
-      a_get('sources/all?perPage=50&format=json').should have_been_made
-    end
+      a_get('sources/all?per_page=50&format=json').should have_been_made
+    end    
   end
   context 'page' do
     it 'adds a page param when passed a value' do

@@ -66,7 +66,7 @@ module WorldBank
 
     def per_page(num=false)
       if num
-        @query[:params][:perPage] = num
+        @query[:params][:per_page] = num
         self
       else
         @per_page || @query[:params][:per_page] || 50
