@@ -1,12 +1,10 @@
+require 'world_bank/queriable'
+
 module WorldBank
 
   class Indicator
-
+    include Queriable
     attr_reader :raw, :id, :name, :source, :note, :organization, :topics, :type
-
-    def self.format(arg)
-      find('all').format(arg)
-    end
 
     def self.id(arg)
       find('all').id(arg)

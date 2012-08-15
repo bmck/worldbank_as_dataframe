@@ -1,7 +1,8 @@
+require 'world_bank/queriable'
 module WorldBank
 
   class Country
-
+    include WorldBank::Queriable
     COUNTRY_ALIASES = [
       ['AW', 'ABW', 'aruba'],
       ['AF', 'AFG', 'afganistan'],
@@ -256,10 +257,6 @@ module WorldBank
 
     def self.country_aliases
       COUNTRY_ALIASES
-    end
-
-    def self.format(arg)
-      find('all').format(arg)
     end
 
     def self.id(arg)

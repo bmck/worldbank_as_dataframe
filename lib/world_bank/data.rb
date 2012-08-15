@@ -1,12 +1,9 @@
+require 'world_bank/queriable'
 module WorldBank
 
   class Data
-
+    include Queriable
     attr_reader :raw, :name, :id, :value, :date, :others
-
-    def self.format(arg)
-      find('all').format(arg)
-    end
 
     def self.id(arg)
       find('all').id(arg)
