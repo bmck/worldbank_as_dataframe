@@ -2,7 +2,7 @@ require 'world_bank/queriable'
 module WorldBank
 
   class Indicator
-    include Queriable
+    extend Queriable
     attr_reader :raw, :id, :name, :source, :note, :organization, :topics, :type
 
     def self.country

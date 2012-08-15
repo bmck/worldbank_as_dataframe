@@ -2,7 +2,7 @@ require 'world_bank/queriable'
 module WorldBank
 
   class Country
-    include WorldBank::Queriable
+    extend WorldBank::Queriable
     COUNTRY_ALIASES = [
       ['AW', 'ABW', 'aruba'],
       ['AF', 'AFG', 'afganistan'],
