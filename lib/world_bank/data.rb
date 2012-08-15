@@ -2,7 +2,7 @@ require 'world_bank/queriable'
 module WorldBank
 
   class Data
-    extend Queriable
+    extend WorldBank::Queriable
     attr_reader :raw, :name, :id, :value, :date, :others
 
     def self.raw
