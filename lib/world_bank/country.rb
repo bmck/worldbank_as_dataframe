@@ -3,6 +3,9 @@ module WorldBank
 
   class Country
     extend WorldBank::Queriable
+    def self.barf
+      puts 'woof'
+    end
     COUNTRY_ALIASES = [
       ['AW', 'ABW', 'aruba'],
       ['AF', 'AFG', 'afganistan'],
