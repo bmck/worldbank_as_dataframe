@@ -1,3 +1,3 @@
 module WorldBank
-  VERSION = "0.9.0"
+  VERSION = "0.9.1.alpha"
 end
