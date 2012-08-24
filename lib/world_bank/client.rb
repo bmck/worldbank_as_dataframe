@@ -33,10 +33,14 @@ module WorldBank
     end
 
     def get(path, headers={})
+      begin
         response = connection.get do |request|
           request.url(path, headers)
         end
-      response.body
+        response.body
+      rescue
+        nil
+      end
     end
 
   private

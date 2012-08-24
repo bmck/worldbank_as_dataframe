@@ -122,8 +122,10 @@ module WorldBank
       @query[:dirs] = @param_dir + @query[:dirs] unless @param_dir.empty?
       client = WorldBank::Client.new(@query, @raw)
       results = client.get_query
-      results = parse results unless @raw
-      results
+    
+      results = parse results unless (results.nil? || @raw)
+      
+      results.nil? ? nil : results
     end
 
 protected
