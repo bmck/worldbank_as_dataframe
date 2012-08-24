@@ -1,14 +1,17 @@
 require 'helper'
 
 describe WorldBank::Query do
+  let(:query_string) { 'sources/all?date=2000:2010&format=json' }
+  let(:query) { WorldBank::Source.all.raw.dates('2000:2010') }
+  
   context 'dates' do
     it 'should return self' do
       WorldBank::Source.all.dates('something').should be_a_kind_of WorldBank::Query
     end
     it 'adds a date string to the params hash' do
-      stub_get('sources/all?date=2000:2010&format=json')
-      WorldBank::Source.all.raw.dates('2000:2010').fetch
-      a_get('sources/all?date=2000:2010&format=json').should have_been_made
+      stub_get(query_string)
+      query.fetch
+      a_get(query_string).should have_been_made
     end
     it 'adds a range of date objects to the params hash' do
       stub_get('sources/all?date=1982M03:2010M09&format=json')
@@ -69,6 +72,12 @@ describe WorldBank::Query do
       stub_get('es/sources/all?format=json')
       WorldBank::Source.all.raw.language(:spanish).fetch
       a_get('es/sources/all?format=json').should have_been_made
+    end
+  end
+  context 'fetch' do
+    it "should signal communication error by returning nil when client returns nil" do
+      WorldBank::Client.any_instance.stub(:get).and_return(nil)
+      query.fetch.should be_nil
     end
   end
 end
