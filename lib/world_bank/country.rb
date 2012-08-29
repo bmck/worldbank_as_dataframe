@@ -286,9 +286,9 @@ module WorldBank
       @name = values['name']
       @iso2_code = values['iso2Code']
       @iso3_code = values['id']
-      @region = WorldBank::Region.new(values['region'])
-      @income_level = WorldBank::IncomeLevel.new(values['incomeLevel'])
-      @lending_type = WorldBank::LendingType.new(values['lendingType'])
+      @region = WorldBank::Region.new(values['region']) if values['region']
+      @income_level = WorldBank::IncomeLevel.new(values['incomeLevel']) if values['incomeLevel']
+      @lending_type = WorldBank::LendingType.new(values['lendingType']) if values['lendingType']
       @capital = values['capitalCity']
       @type = 'countries'
     end

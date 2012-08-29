@@ -28,5 +28,8 @@ describe WorldBank::Country do
     it 'a region' do
       @india.region.should be_a WorldBank::Region
     end
+    it 'should initialize without all required attributes' do
+      WorldBank::Country.new({'name' => 'France'}).should be_an_instance_of(WorldBank::Country)
+    end
   end
 end
