@@ -1,16 +1,10 @@
-# WorldBank
+# WorldbankAsDataframe
 
 A wrapper for the World Bank's Development Indicators API sponsored by Code for America.
 
 Please see the World Bank's data [[developer's page](http://data.worldbank.org/developers/)] for more info on the data sources.
 
-The World Bank gem should work with out problem on MRI 1.9.2, REE or
-JRuby. If it doesn't, it's a bug, and we'd appreciate it if you filed an
-issue!
 
-Does your project or organization use this gem?
-------------------------------------------
-Add it to the [apps](http://github.com/codeforamerica/world_bank_ruby/wiki/apps) wiki!
 
 Continuous Integration
 ----------------------
@@ -18,38 +12,38 @@ Continuous Integration
 You can see the World Bank Gem's build status at
 http:ci.codeforamerica.org or on Travis:
 
-[![Build Status](https://secure.travis-ci.org/codeforamerica/world_bank_ruby.png)](http://travis-ci.org/codeforamerica/world_bank_ruby)
+[![Build Status](https://secure.travis-ci.org/codeforamerica/worldbank_as_dataframe_ruby.png)](http://travis-ci.org/codeforamerica/worldbank_as_dataframe_ruby)
 
 
 Usage
 -----
 ```ruby
 
-	require 'world_bank'
+	require 'worldbank_as_dataframe'
 
-  WorldBank::Source.all.fetch       # =>  ['Doing Business', 'Something Else'...]
+  WorldbankAsDataframe::Source.all.fetch       # =>  ['Doing Business', 'Something Else'...]
                                     #        array of 16 sources of information the bank used
 
-  WorldBank::IncomeLevel..all.fetch # =>  { HIC: 'High Income', HPC: 'Heavily Indebted Poor Countries (HIPC)'...}
+  WorldbankAsDataframe::IncomeLevel..all.fetch # =>  { HIC: 'High Income', HPC: 'Heavily Indebted Poor Countries (HIPC)'...}
                                     #       hash of 9 income levels the bank assigns
 
-  WorldBank::LendingType.all.fetch  # =>  [ { id: 'IBD', value: 'IBRD' }... ] an array of key: value pairs of
+  WorldbankAsDataframe::LendingType.all.fetch  # =>  [ { id: 'IBD', value: 'IBRD' }... ] an array of key: value pairs of
                                     #        the 4 lending types
 
-  WorldBank::Topic.all.fetch        # =>  the 18 high level topics that indicators are grouped into
+  WorldbankAsDataframe::Topic.all.fetch        # =>  the 18 high level topics that indicators are grouped into
 
-  WorldBank::Region.all.fetch       # =>  returns all the regions the World Bank can classify a country as
+  WorldbankAsDataframe::Region.all.fetch       # =>  returns all the regions the World Bank can classify a country as
 
-  WorldBank::Country.all.fetch      # =>  returns all countries the World Bank tracks
+  WorldbankAsDataframe::Country.all.fetch      # =>  returns all countries the World Bank tracks
 
-  WorldBank::Indicator.all.fetch    # =>  returns all the indicators the World Bank uses
+  WorldbankAsDataframe::Indicator.all.fetch    # =>  returns all the indicators the World Bank uses
 
-  WorldBank::Indicator.featured     # =>  returns the featured indicators
+  WorldbankAsDataframe::Indicator.featured     # =>  returns the featured indicators
 
-  WorldBank::Topic.all.fetch        # =>  returns all the topics the World Bank catagorizes its indicators into
+  WorldbankAsDataframe::Topic.all.fetch        # =>  returns all the topics the World Bank catagorizes its indicators into
 
 
-include WorldBank
+include WorldbankAsDataframe
   #
   # Topics
   #
@@ -67,9 +61,9 @@ include WorldBank
   #
   # note: only low and middle income countries are classified by region...
   #
-  @brazil.region                  # =>  <WorldBank::Region @name="Latin America & Caribbean (all income levels)" ....>
+  @brazil.region                  # =>  <WorldbankAsDataframe::Region @name="Latin America & Caribbean (all income levels)" ....>
   @brazil.capital                 # =>  'Brasilia'
-  @brazil.lending_type            # => <WorldBank::LendingType>
+  @brazil.lending_type            # => <WorldbankAsDataframe::LendingType>
 
   #
   # Indicators
@@ -82,8 +76,8 @@ include WorldBank
   #
   # Data
   #
-  @results = WorldBank::Data.country('brazil').indicator('NY.GDP.MKTP.CD').dates('2000:2008').fetch
-  # returns an array of WorldBank::Data objects that correspond to
+  @results = WorldbankAsDataframe::Data.country('brazil').indicator('NY.GDP.MKTP.CD').dates('2000:2008').fetch
+  # returns an array of WorldbankAsDataframe::Data objects that correspond to
   # Brazil's Yearly Gross Domestic Product as MarKeT Prices in Current U.S.
   # Dollars from 2000 to 2008
 
@@ -101,7 +95,7 @@ include WorldBank
   #  2001: $553582178386.192
   #  2000: $644701831101.394
   #
-  #  The WorldBank::Data can have have methods matching any of the World Bank API's
+  #  The WorldbankAsDataframe::Data can have have methods matching any of the World Bank API's
   # modifiers (like #dates above) called as class methods or chained in a query.
   #
 
@@ -124,7 +118,7 @@ Here are some ways *you* can contribute:
 * by writing code (**no patch is too small**: fix typos, add comments,
   clean up inconsistent whitespace)
 * by refactoring code
-* by resolving [issues](https://github.com/codeforamerica/world_bank_ruby/issues)
+* by resolving [issues](https://github.com/codeforamerica/worldbank_as_dataframe_ruby/issues)
 * by reviewing patches
 
 Submitting an Issue
@@ -162,7 +156,7 @@ Copyright
 ---------
 Copyright (c) 2011 Code for America
 See
-[LICENSE](https://github.com/codeforamerica/world_bank_ruby/blob/master/LICENSE.md)
+[LICENSE](https://github.com/codeforamerica/worldbank_as_dataframe_ruby/blob/master/LICENSE.md)
 for details.
 
 [![Code for America
