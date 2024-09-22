@@ -7,11 +7,18 @@ module WorldbankAsDataframe
       clear_params!
     end
     
-    def fetch
-      # puts "#{__FILE__}:#{__LINE__} self = #{inspect}"  
+    def fetch_as_hsh
       results = super
       clear_params!
       results
+    end
+    
+    def fetch
+      require 'polars-df'
+
+      results = super
+      clear_params!
+      Polars::DataFrame.new(results.map(&:to_h))
     end
     
     def lending_type(lending_type)

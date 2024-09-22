@@ -34,5 +34,14 @@ module WorldbankAsDataframe
       values.delete('indicator')
       @others = values
     end
+
+    def to_h
+      hdr = @name
+      suffix = nil
+      suffix = " for #{@others['country']['value']}" rescue ''
+      hdr += suffix
+
+      {'Timestamps' => @date, hdr => @value }
+    end
   end
 end

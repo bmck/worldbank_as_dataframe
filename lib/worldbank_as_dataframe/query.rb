@@ -112,7 +112,6 @@ module WorldbankAsDataframe
     end
 
     def fetch
-      # puts "#{__FILE__}:#{__LINE__} self = #{inspect}"
       if @new
         @query[:dirs].push @name
         @query[:dirs].push @id
@@ -121,7 +120,6 @@ module WorldbankAsDataframe
         @new = false
       end
       @query[:dirs] = @param_dir + @query[:dirs] unless @param_dir.empty?
-      # puts "#{__FILE__}:#{__LINE__} @query = #{@query.inspect}"  
       client = WorldbankAsDataframe::Client.new(@query, @raw)
       results = client.get_query
     
