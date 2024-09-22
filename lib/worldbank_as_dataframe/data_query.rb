@@ -8,6 +8,7 @@ module WorldbankAsDataframe
     end
     
     def fetch
+      # puts "#{__FILE__}:#{__LINE__} self = #{inspect}"  
       results = super
       clear_params!
       results
@@ -30,7 +31,7 @@ module WorldbankAsDataframe
     def region(regions)
       ensure_unconflicting_qualifiers
       parsed = indifferent_number regions
-      @param_dir = ['countries', parsed]
+      @param_dir = ['country', parsed]
       self
     end
 
@@ -38,7 +39,7 @@ module WorldbankAsDataframe
       ensure_unconflicting_qualifiers
       parsed = indifferent_type country
       parsed = ensure_country_id parsed
-      @param_dir = ['countries', parsed]
+      @param_dir = ['country', parsed]
       self
     end
 

@@ -278,7 +278,7 @@ module WorldbankAsDataframe
     def self.find(id)
       id = normalize_id id
       id = ensure_id id unless id =~ /all/
-      WorldbankAsDataframe::ParamQuery.new('countries', id, self)
+      WorldbankAsDataframe::ParamQuery.new('country', id, self)
     end
 
     def initialize(values={})

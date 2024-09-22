@@ -20,20 +20,20 @@ module WorldbankAsDataframe
 
     def region(regions)
       parsed = indifferent_number regions
-      @query[:params].merge!({:countries => parsed})
+      @query[:params].merge!({:country => parsed})
       self
     end
 
     def country(country)
       parsed = indifferent_type country
       parsed = ensure_country_id parsed
-      @query[:params].merge!({:countries => parsed})
+      @query[:params].merge!({:country => parsed})
       self
     end
 
     def indicator(indicators)
       parsed = indifferent_number indicators
-      @query[:params].merge!({:indicators => parsed})
+      @query[:params].merge!({:indicator => parsed})
       self
     end
 

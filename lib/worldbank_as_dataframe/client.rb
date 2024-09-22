@@ -14,7 +14,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'data_query'))
 module WorldbankAsDataframe
   class Client
     include HTTParty
-    base_uri 'http://api.worldbank.org/v2'
+    # base_uri 'https://api.worldbank.org/v2/'
 
 
     attr_accessor :query
@@ -25,7 +25,7 @@ module WorldbankAsDataframe
     end
 
     def get_query
-      @path = @query[:dirs].join('/')
+      @path = 'https://api.worldbank.org/v2/' + @query[:dirs].map(&:downcase).join('/')
       @path += '?'
       params = []
       @query[:params].each do |key, value|
@@ -37,9 +37,11 @@ module WorldbankAsDataframe
 
     def get(path, headers={})
       begin
+        # puts "#{__FILE__}:#{__LINE__} path = #{path.inspect}"
         response = self.class.get(path, headers)
+        # puts "#{__FILE__}:#{__LINE__} response = #{response.inspect}"
 
-        Polars::DataFrame.new(response.parsed_response)
+        response.parsed_response
       rescue
         nil
       end

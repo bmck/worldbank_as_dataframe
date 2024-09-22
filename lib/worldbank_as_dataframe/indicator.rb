@@ -22,7 +22,7 @@ module WorldbankAsDataframe
     end
 
     def self.find(id)
-      WorldbankAsDataframe::ParamQuery.new('indicators', id, self)
+      WorldbankAsDataframe::ParamQuery.new('indicator', id, self)
     end
 
     def initialize(values={})
@@ -36,7 +36,7 @@ module WorldbankAsDataframe
       values['topics'].each do |topic| 
         @topics << WorldbankAsDataframe::Topic.new(topic)
       end
-      @type = 'indicators'
+      @type = 'indicator'
     end
   end
 end

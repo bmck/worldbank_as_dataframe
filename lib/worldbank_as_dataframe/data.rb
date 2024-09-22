@@ -22,7 +22,7 @@ module WorldbankAsDataframe
     end
 
     def self.find(id)
-      WorldbankAsDataframe::DataQuery.new('indicators', id, self)
+      WorldbankAsDataframe::DataQuery.new('indicator', id, self)
     end
 
     def initialize(values={})
