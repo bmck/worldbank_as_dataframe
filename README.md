@@ -1,18 +1,9 @@
 # WorldbankAsDataframe
 
-A wrapper for the World Bank's Development Indicators API sponsored by Code for America.
+A wrapper for the World Bank's Development Indicators API.  This API was initially developed and sponsored by Code for America, and later updated by Alexander Auritt.
 
 Please see the World Bank's data [[developer's page](http://data.worldbank.org/developers/)] for more info on the data sources.
 
-
-
-Continuous Integration
-----------------------
-
-You can see the World Bank Gem's build status at
-http:ci.codeforamerica.org or on Travis:
-
-[![Build Status](https://secure.travis-ci.org/codeforamerica/worldbank_as_dataframe_ruby.png)](http://travis-ci.org/codeforamerica/worldbank_as_dataframe_ruby)
 
 
 Usage
@@ -83,17 +74,23 @@ include WorldbankAsDataframe
 
   puts @results.first.name
   @results.each {|d| puts d.date + ': $' + d.value }
-  #    =>
-  #  GDP (current US$)
-  #  2008: $1652632229227.61
-  #  2007: $1365982651542.37
-  #  2006: $1088917279411.76
-  #  2005: $882185291700.904
-  #  2004: $663760000000
-  #  2003: $552469288267.793
-  #  2002: $504221228974.035
-  #  2001: $553582178386.192
-  #  2000: $644701831101.394
+  #   => 
+  # shape: (9, 2)  
+  # ┌────────────┬──────────────────────────────┐                                                                                             
+  # │ Timestamps ┆ GDP (current US$) for Brazil │                                                                                             
+  # │ ---        ┆ ---                          │                                                                                             
+  # │ date       ┆ f64                          │                                                                                             
+  # ╞════════════╪══════════════════════════════╡                                                                                             
+  # │ 2008-12-31 ┆ 1.6959e12                    │
+  # │ 2007-12-31 ┆ 1.3971e12                    │
+  # │ 2006-12-31 ┆ 1.1076e12                    │
+  # │ 2005-12-31 ┆ 8.9163e11                    │
+  # │ 2004-12-31 ┆ 6.6929e11                    │
+  # │ 2003-12-31 ┆ 5.5823e11                    │
+  # │ 2002-12-31 ┆ 5.0980e11                    │
+  # │ 2001-12-31 ┆ 5.5998e11                    │
+  # │ 2000-12-31 ┆ 6.5545e11                    │
+  # └────────────┴──────────────────────────────┘ 
   #
   #  The WorldbankAsDataframe::Data can have have methods matching any of the World Bank API's
   # modifiers (like #dates above) called as class methods or chained in a query.
@@ -118,13 +115,13 @@ Here are some ways *you* can contribute:
 * by writing code (**no patch is too small**: fix typos, add comments,
   clean up inconsistent whitespace)
 * by refactoring code
-* by resolving [issues](https://github.com/codeforamerica/worldbank_as_dataframe_ruby/issues)
+* by resolving [issues](https://github.com/bmck/worldbank_as_dataframe/issues)
 * by reviewing patches
 
 Submitting an Issue
 -------------------
 We use the [GitHub issue
-tracker](https://github.com/codeforamerica/fed_spending_ruby/issues) to track bugs and
+tracker](https://github.com/bmck/worldbank_as_dataframe/issues) to track bugs and
 features. Before submitting a bug report or feature request, check to
 make sure it hasn't already
 been submitted. You can indicate support for an existing issuse by
@@ -156,9 +153,8 @@ Copyright
 ---------
 Copyright (c) 2011 Code for America
 See
-[LICENSE](https://github.com/codeforamerica/worldbank_as_dataframe_ruby/blob/master/LICENSE.md)
+[LICENSE](https://github.com/bmck/worldbank_as_dataframe/blob/master/LICENSE.md)
 for details.
 
-[![Code for America
-Tracker](http://stats.codeforamerica.org/codeforamerica/code_for_america_tracking.png)](http://stats.codeforamerica.org/)
+
 

@@ -41,7 +41,7 @@ module WorldbankAsDataframe
       suffix = " for #{@others['country']['value']}" rescue ''
       hdr += suffix
 
-      {'Timestamps' => @date, hdr => @value }
+      {'Timestamps' => Date.new(@date.to_i, 12, 31), hdr => @value }
     end
   end
 end
