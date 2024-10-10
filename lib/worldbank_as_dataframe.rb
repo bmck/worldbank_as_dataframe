@@ -1,17 +1,5 @@
 require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/client'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/source'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/income_level'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/lending_type'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/country'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/indicator'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/topic'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/region'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/query'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/data'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/param_query'))
-require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/data_query'))
 require File.expand_path(File.join(File.dirname(__FILE__), '/worldbank_as_dataframe/commodities'))
-require 'httparty'
 
 module WorldbankAsDataframe
   def self.client(query={}, raw=false)

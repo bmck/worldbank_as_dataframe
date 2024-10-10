@@ -6,7 +6,7 @@ module WorldbankAsDataframe
   class Commodities
     attr_reader :tag
 
-    def initialize(series, options={})
+    def initialize(series = nil, options={})
       @tag = series
     end
 
@@ -18,14 +18,20 @@ module WorldbankAsDataframe
       ary[1].length.times {|i| ary[1][i] = [ary[0][i], ary[1][i]].compact.join(' ') }
       ary = ary[1..-1]
 
-      ary[1..-1].each{|a| dt = a[0].split('M'); a[0] = Date.new(dt[0].to_i, dt[1].to_i, 1).to_date }
+      dat = ary[1..-1]
+      cols = ary[0]
 
-      df = Polars::DataFrame.new(ary[1..-1].transpose, columns: ary[0])
+      dat.each{|a| dt = a[0].split('M'); a[0] = Date.new(dt[0].to_i, dt[1].to_i, 1).to_date }
+      dat.each{|row| row.map!{|c| c.in?(["…","..."]) ? nil : c }}
+
+      df = Polars::DataFrame.new(dat.transpose, columns: cols)
       df = df.filter(Polars.col('Timestamps') >= start.to_date) unless start.nil?
       df = df.filter(Polars.col('Timestamps') <= fin.to_date) unless fin.nil?
 
-      cols = cols.map{|c| (/#{tag.downcase}/ =~ c.downcase).nil? ? nil : c }.compact
-      df = df.select(['Timestamps', cols].flatten) if (cols.length>0)
+      unless @tag.nil?
+        cols = cols.map{|c| (/#{tag.downcase}/ =~ c.downcase).nil? ? nil : c }.compact
+        df = df.select(['Timestamps', cols].flatten) if (cols.length>0)
+      end
 
       df
     end

@@ -1,3 +1,15 @@
+require File.expand_path(File.join(File.dirname(__FILE__), '/source'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/income_level'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/lending_type'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/country'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/indicator'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/topic'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/region'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/query'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/data'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/param_query'))
+require File.expand_path(File.join(File.dirname(__FILE__), '/data_query'))
+require 'httparty'
 
 module WorldbankAsDataframe
   class Client
