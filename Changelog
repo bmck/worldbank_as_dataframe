@@ -1,3 +1,7 @@
+0.2.2
+	Parse CMO commodity workbooks with Roo instead of SimpleXlsxReader
+	Match the Monthly Prices sheet after normalizing title whitespace and case
+	Skip chart-only sheets such as AFOSHEET
 0.0.1
 	Initial release
 0.9.0

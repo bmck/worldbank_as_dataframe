@@ -96,6 +96,9 @@ include WorldbankAsDataframe
   # modifiers (like #dates above) called as class methods or chained in a query.
   #
 
+  # Commodities#fetch downloads the Pink Sheet xlsx and parses the Monthly Prices
+  # sheet with Roo (chart-only sheets such as AFOSHEET are skipped).
+
   WorldbankAsDataframe::Commodities.new.fetch
   #    => 
   # shape: (777, 72)

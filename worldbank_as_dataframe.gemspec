@@ -26,5 +26,6 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'httparty'
   gem.add_runtime_dependency 'polars-df'
   gem.add_runtime_dependency 'multi_json'
+  gem.add_runtime_dependency 'roo'
   # gem.add_runtime_dependency 'rash', '~> 0.3.0'  
 end
